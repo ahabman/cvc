@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/4.1.5/cash.min.js"></script>
+    <script>
+
+        $(function () {
+            // upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+            // lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+            c = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']
+            v = ['A', 'E', 'I', 'O', 'U']
+
+            function generate() {
+                var c1 = c[Math.floor(Math.random() * c.length)];
+                var v1 = v[Math.floor(Math.random() * v.length)];
+                var c2 = c[Math.floor(Math.random() * c.length)];
+                cvc = c1 + v1 + c2;
+                console.log(cvc);
+                $('h1').html(cvc);
+
+                var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                $('h1').attr('style', 'color:' + randomColor);
+            }
+            $('body').on('keydown', function () {
+                generate();
+            })
+            generate();
+
+        });
+    </script>
+    <style>
+        html,
+        body {
+            background-color: #EFEFEF;
+            height: 100%;
+            overflow: hidden;
+        }
+        .flex-container {
+            /* border: 1px solid red; */
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-item {
+            /* border: solid 1px blue; */
+        }
+
+        h1{
+            font-family: Georgia;
+            font-size:33vw;
+            text-shadow: 3px 3px 10px rgba(75, 75, 75, 0.5);
+            color:#000;
+            -webkit-text-stroke: 1px #BBB;
+        }
+        @media (max-width: 480px) {
+            h1 {
+                /* font-size:20vw; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+            <div class="flex-item">
+                <h1></h1>
+            </div>
+    </div>
+
+</body>
+
+</html>

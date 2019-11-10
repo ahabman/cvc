@@ -25,6 +25,9 @@
             $('body').on('keydown', function () {
                 generate();
             })
+            window.addEventListener('touchstart', function () {
+                generate();
+            });
             generate();
 
         });
